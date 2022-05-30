@@ -96,7 +96,9 @@ module.exports = {
                 "postcss-loader",
             ],
         })
+    
 
+    console.log("fuck svg rule")
         // Return the final Webpack configuration
         return config;
     },

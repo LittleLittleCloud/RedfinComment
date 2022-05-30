@@ -3,6 +3,7 @@ import { Hello } from "@src/components/hello";
 import { browser, Tabs } from "webextension-polyfill-ts";
 import { Scroller } from "@src/components/scroller";
 import css from "./styles.module.css";
+import { LikeBtn } from "@src/components/likeBtn";
 
 // // // //
 
@@ -49,7 +50,9 @@ export function Popup() {
     // Renders the component tree
     return (
         <div className={css.popupContainer}>
+            <LikeBtn vote={10} score={100} setDownvote={() => {}} setUpvote={()=>{}} /> 
             <div className="mx-4 my-4">
+                <p>Fuck you</p>
                 <Hello />
                 <hr />
                 <Scroller

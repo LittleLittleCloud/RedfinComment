@@ -4,6 +4,7 @@ module.exports = {
     entry: {
         backgroundPage: path.join(__dirname, "src/backgroundPage.ts"),
         popup: path.join(__dirname, "src/popup/index.tsx"),
+        injectComment: path.join(__dirname, "src/injectComment.tsx")
     },
     output: {
         path: path.join(__dirname, "dist/js"),
@@ -39,6 +40,11 @@ module.exports = {
                     "postcss-loader",
                 ],
             },
+            {
+                test: /\.svg$/i,
+                issuer: /\.[jt]sx?$/,
+                use: ['@svgr/webpack']
+            }
         ],
     },
     // Setup @src path resolution for TypeScript files
