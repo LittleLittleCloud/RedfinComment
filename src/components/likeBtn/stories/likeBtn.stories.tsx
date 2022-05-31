@@ -11,4 +11,8 @@ export default{
 
 const Template: ComponentStory<typeof LikeBtn> = args => <LikeBtn {...args} />;
 
-export const Fuck = Template.bind({});
+export const Default = Template.bind({});
+Default.args ={
+    vote: 0,
+    score: 10,
+}

@@ -4,3 +4,8 @@ declare module "*.svg" {
     export const ReactComponent: React.SFC<React.SVGProps<SVGSVGElement>>;
     export default ReactComponent;
 }
+
+declare module "*.jpg" {
+    const src: string;
+    export default src;
+}

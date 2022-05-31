@@ -1,0 +1,12 @@
+.commentBody {
+    font-size: medium;
+}
+
+.commentHeader{
+    display: flex;
+    justify-content: space-between;
+}
+
+.createWhen{
+    color: gray;
+}

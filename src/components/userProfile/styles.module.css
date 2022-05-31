@@ -1,0 +1,13 @@
+.userProfile{
+    display:flex;
+    margin: 3 auto;
+    column-gap: 5px;
+}
+
+.userProfile img{
+    height: 25pt;
+}
+
+.userName{
+    font-size: large;
+}

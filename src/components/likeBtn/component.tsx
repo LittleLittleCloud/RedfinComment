@@ -1,29 +1,42 @@
 import css from "./styles.module.css";
 import React from "react";
-import ReactComponent from "./upvote.svg"
+import Upvote from "./upvote.svg"
+import Downvote from "./downvote.svg"
 
 // // // //
 
-export function LikeBtn(props:{
+export interface LikeBtnProps{
     vote: number,
     score: number,
     setUpvote: () => void,
     setDownvote: () => void,
-}){
+}
+
+export function LikeBtn({
+    vote,
+    score,
+    setUpvote,
+    setDownvote,
+}: LikeBtnProps){
     return (
-        <div>
+        <div
+            className={css.vote}>
             <button
-                className={css.LikeBtn}
-                onClick={() => props.setUpvote()}
+                className={css.vote}
+                onClick={() => setUpvote()}
             >
-                <ReactComponent />
+                <span>
+                    <Upvote />
+                    <label>{score}</label>
+                </span>
             </button>
-            <h1>{props.vote}</h1>
             <button
-                className={css.LikeBtn}
-                onClick={() => props.setDownvote()}
+                className={css.vote}
+                onClick={() => setDownvote()}
             >
-                <ReactComponent />
+                <span>
+                    <Downvote />
+                </span>
             </button>
         </div>
     )
