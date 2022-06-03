@@ -1,15 +1,14 @@
 import React from "react";
-import { LikeBtn } from "../likeBtn";
-import { LikeBtnProps } from "../likeBtn/component";
 import { UserProfile, UserProfileProps } from "../userProfile/component";
 import css from "./styles.module.css";
 
-export function Comment(props:{
+export interface ReplyProps{
     content: string,
     timeStamp: number,
     userProfileProps: UserProfileProps,
-    likeBtnProps: LikeBtnProps,
-}){
+};
+
+export function Reply(props: ReplyProps){
     var createdWhen = new Date(props.timeStamp * 1000);
     return (
         <div>
@@ -21,9 +20,6 @@ export function Comment(props:{
             <div
                 className={css.commentBody}>
                 {props.content}
-            </div>
-            <div>
-                <LikeBtn {...props.likeBtnProps} />
             </div>
         </div>
     )

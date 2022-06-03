@@ -1,0 +1,22 @@
+.commentBody {
+    font-size: small;
+}
+
+.commentHeader{
+    display: flex;
+    justify-content: space-between;
+}
+
+.commentHeader img{
+    width: 20pt;
+    height: 20pt;
+}
+
+.commentHeader div{
+    font-size: small;
+}
+
+.createWhen{
+    color: gray;
+    font-size: small;
+}
