@@ -1,6 +1,3 @@
-import { Url } from "url";
-import exampleIcon from "./components/userProfile/exampleIcon.jpg";
-
 interface IReply {
     replyID: number;
     content: string;
@@ -104,7 +101,8 @@ class FakeGossipClient implements IGossipClient {
         return {
             userID: Math.floor(Math.random() * 10086),
             nickName: randomNickName,
-            avatarUrl: exampleIcon,
+            avatarUrl:
+                "https://pica.zhimg.com/v2-abed1a8c04700ba7d72b45195223e0ff_s.jpg?source=06d4cd63",
         } as IUser;
     }
 }

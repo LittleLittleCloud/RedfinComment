@@ -46,7 +46,7 @@ export class ReplySection extends React.Component<ReplySectionProps, ReplySectio
         return (
             <div>
                 {
-                    this.state.replies?.length > 0 && this.state.isExpanded &&
+                    this.state.replies?.length! > 0 && this.state.isExpanded &&
                     <div>
                         <ul>
                             {this.state.replies?.map((reply => 

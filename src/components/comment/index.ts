@@ -1,1 +1,1 @@
-export { Comment } from "./component";
+export { Comment, ICommentProps } from "./component";

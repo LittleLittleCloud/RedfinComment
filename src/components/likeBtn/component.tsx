@@ -6,10 +6,10 @@ import Downvote from "./downvote.svg"
 // // // //
 
 export interface LikeBtnProps{
-    vote: number,
+    vote?: number,
     score: number,
-    setUpvote: () => void,
-    setDownvote: () => void,
+    setUpvote?: () => void,
+    setDownvote?: () => void,
 }
 
 export function LikeBtn({
@@ -23,7 +23,7 @@ export function LikeBtn({
             className={css.vote}>
             <button
                 className={css.vote}
-                onClick={() => setUpvote()}
+                onClick={() => setUpvote!()}
             >
                 <span>
                     <Upvote />
@@ -32,7 +32,7 @@ export function LikeBtn({
             </button>
             <button
                 className={css.vote}
-                onClick={() => setDownvote()}
+                onClick={() => setDownvote!()}
             >
                 <span>
                     <Downvote />

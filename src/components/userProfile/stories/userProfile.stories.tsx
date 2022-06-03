@@ -11,6 +11,6 @@ const Template: ComponentStory<typeof UserProfile> = args => <UserProfile {...ar
 
 export const Default = Template.bind({})
 Default.args = {
-    name : "BigMiao",
+    nickName : "BigMiao",
     avatarUrl: exampleIcon,
 }
