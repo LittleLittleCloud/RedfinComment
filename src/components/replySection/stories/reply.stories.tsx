@@ -1,7 +1,10 @@
 import { ComponentMeta, ComponentStory } from "@storybook/react"
 import * as React from "react"
-import {ReplySection} from "../component";
+import {ReplySection, ReplySectionProps} from "../component";
 import exampleIcon from "../../userProfile/exampleIcon.jpg"
+import { UserProfileProps } from "@src/components/userProfile/component";
+import { FAKE_GOSSIP_CLIENT, IComment } from "@src/gossipClient";
+import { ReplyProps } from "@src/components/reply/component";
 
 export default{
     component: ReplySection,
@@ -11,25 +14,40 @@ export default{
 const Template: ComponentStory<typeof ReplySection> = args => <ReplySection {...args} />
 
 export const Reply_100 = Template.bind({});
-var defaultUserProfileProps = {
-    name: "BigMiao",
+
+var defaultUserProfileProps : UserProfileProps = {
+    nickName: "BigMiao",
     avatarUrl: exampleIcon,
-    userId: "userId",
+    userID: 123456,
+    gossipClient: FAKE_GOSSIP_CLIENT,
+};
+var defaultCommentProps: IComment = {
+    commentID: 123456,
+    content: "shit",
+    createdBy: defaultUserProfileProps,
+    createdWhenTimestampInSecond: 123456434223,
 };
 
-var defaultReply = {
+var defaultReply: ReplyProps = {
     content: "this is a reply, hahahahahahahahahahh",
-    userProfileProps:defaultUserProfileProps,
-    timeStamp: 1653985929,
+    createdBy:defaultUserProfileProps,
+    createdWhenTimestampInSecond: 1653985929,
+    gossipClient: FAKE_GOSSIP_CLIENT,
+    replyID: 12345663,
 }
 
 Reply_100.args = {
     replies: [defaultReply, defaultReply, defaultReply],
-    numberOfRepliesLeft: 97,
+    numberOfReplies: 97,
+    gossipClient: FAKE_GOSSIP_CLIENT,
+    comment: defaultCommentProps,
 }
 
 export const Reply_hide = Template.bind({})
+
 Reply_hide.args = {
     replies : [defaultReply, defaultReply, defaultReply],
-    numberOfRepliesLeft: 0,
+    numberOfReplies: 0,
+    gossipClient: FAKE_GOSSIP_CLIENT,
+    comment: defaultCommentProps,
 }

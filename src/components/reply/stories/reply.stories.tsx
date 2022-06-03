@@ -2,6 +2,7 @@ import { ComponentMeta, ComponentStory } from "@storybook/react"
 import * as React from "react"
 import {Reply} from "../component";
 import exampleIcon from "../../userProfile/exampleIcon.jpg"
+import { FAKE_GOSSIP_CLIENT } from "@src/gossipClient";
 
 export default{
     component: Reply,
@@ -14,11 +15,12 @@ export const Default = Template.bind({});
 
 Default.args = {
     content: "this is a reply, hahahahahahahahahahh",
-    userProfileProps:{
-        name: "BigMiao",
+    createdBy:{
+        nickName: "BigMiao",
         avatarUrl: exampleIcon,
-        userId: "userId",
+        userID: 123456,
     },
-    timeStamp: 1653985929,
+    createdWhenTimestampInSecond: 1653985929,
+    gossipClient: FAKE_GOSSIP_CLIENT,
 }
 

@@ -2,6 +2,7 @@ import { ComponentMeta, ComponentStory } from "@storybook/react"
 import * as React from "react"
 import {Comment} from "../component";
 import exampleIcon from "../../userProfile/exampleIcon.jpg"
+import { FAKE_GOSSIP_CLIENT } from "@src/gossipClient";
 
 export default{
     component: Comment,
@@ -14,14 +15,16 @@ export const Default = Template.bind({});
 
 Default.args = {
     content: "this is a reply, hahahahahahahahahahh",
-    userProfileProps:{
-        name: "BigMiao",
+    commentID: 123456,
+    createdBy: {
+        nickName: "BigMiao",
+        userID: 233456,
         avatarUrl: exampleIcon,
-        userId: "userId",
     },
     likeBtnProps:{
         score: 100,
     },
-    timeStamp: 1653985929,
+    createdWhenTimestampInSecond: 1653985929,
+    gossipClient: FAKE_GOSSIP_CLIENT,
 }
 
