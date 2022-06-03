@@ -6,16 +6,25 @@ export interface ReplySectionProps{
     numberOfRepliesLeft: number,
 }
 
-export class ReplySection extends React.Component<ReplySectionProps, ReplySectionProps>{
+export interface ReplySectionState extends ReplySectionProps{
+    isExpanded?: boolean,
+}
+
+export class ReplySection extends React.Component<ReplySectionProps, ReplySectionState>{
     constructor(props: ReplySectionProps){
         super(props);
-        this.state = {...props};
+        this.state = {...props, isExpanded: false};
 
-        this.loadMoreReply = this.loadMoreReply.bind(this);
+        this.loadMoreReplies = this.loadMoreReplies.bind(this);
+        this.hideReplySection = this.hideReplySection.bind(this);
     }
 
-    loadMoreReply(){
+    loadMoreReplies(){
+        this.setState({isExpanded: true});
+    }
 
+    hideReplySection(){
+        this.setState({isExpanded: false});
     }
 
     render(){
@@ -25,20 +34,29 @@ export class ReplySection extends React.Component<ReplySectionProps, ReplySectio
     
         return (
             <div>
-                {this.state.replies?.length > 0 &&
-                <div>
-                    <ul>
-                        {this.state.replies?.map((reply => 
-                        <li>
-                            <Reply {...reply} />
-                        </li>))}
-                    </ul>
-                </div>
+                {
+                    this.state.replies?.length > 0 && this.state.isExpanded &&
+                    <div>
+                        <ul>
+                            {this.state.replies?.map((reply => 
+                            <li>
+                                <Reply {...reply} />
+                            </li>))}
+                        </ul>
+                    </div>
                 }
-    
-                <div onClick={this.loadMoreReply}>
-                    load {this.state.numberOfRepliesLeft} more replies
-                </div>
+                {
+                    (!this.state.isExpanded || this.state.numberOfRepliesLeft > 0) &&
+                    <div onClick={this.loadMoreReplies}>
+                        load {this.state.isExpanded ? "more replies":"replies"}
+                    </div>
+                }
+                {
+                    this.state.numberOfRepliesLeft == 0 && this.state.isExpanded &&
+                    <div onClick={this.hideReplySection}>
+                        hide replies
+                    </div>
+                }
             </div>
     
         )

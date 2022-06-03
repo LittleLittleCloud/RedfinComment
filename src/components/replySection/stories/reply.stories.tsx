@@ -11,7 +11,6 @@ export default{
 const Template: ComponentStory<typeof ReplySection> = args => <ReplySection {...args} />
 
 export const Reply_100 = Template.bind({});
-
 var defaultUserProfileProps = {
     name: "BigMiao",
     avatarUrl: exampleIcon,
@@ -29,3 +28,8 @@ Reply_100.args = {
     numberOfRepliesLeft: 97,
 }
 
+export const Reply_hide = Template.bind({})
+Reply_hide.args = {
+    replies : [defaultReply, defaultReply, defaultReply],
+    numberOfRepliesLeft: 0,
+}
